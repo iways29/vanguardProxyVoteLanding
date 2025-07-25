@@ -124,7 +124,7 @@ const App = () => {
             Proxy voting: Your voice, your choice
           </h1>
           
-          <div className="bg-white shadow-4xl p-8 relative -mb-24 z-20 border border-gray-100">
+          <div className="bg-white shadow-4xl p-8 relative -mb-24 z-20 border border-black-100">
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col">
                 <div className="w-full h-32 mb-3">
@@ -141,7 +141,7 @@ const App = () => {
               
               <div className="border-r border-black-600 pr-4">
                 <h3 className="text-lg font-bold mb-3" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>What's Vanguard offering?</h3>
-                <p className="text-gray text-sm leading-relaxed text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
+                <p className="text-black text-sm leading-relaxed text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
                   <span className="underline" style={{ color: '#2159d2' }}>The Vanguard Investor Choice Pilot Program</span> is providing a 
                   way for you to participate in the proxy voting process by 
                   choosing a proxy voting policy that will help direct how your 
@@ -168,10 +168,10 @@ const App = () => {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-5 pt-32 pb-12">
         <div className="text-left mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
+          <h2 className="text-4xl font-bold text-black-900 mb-6" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
             Want to choose a policy for all Vanguard funds?
           </h2>
-          <p className="text-lg text-gray-700 mb-2 text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
+          <p className="text-lg text-black-700 mb-2 text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
             Vanguard Investor Choice currently offers the following policy options that reflect a broad range of 
             approaches to proxy voting that you may choose to apply to your{' '}
             <span className="underline" style={{ color: '#2159d2' }}>
@@ -206,8 +206,14 @@ const App = () => {
                       )}
                     </div>
                     <div className="flex items-center space-x-2">
-                      <h3 className="text-lg font-medium text-gray-900" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>{policy.name}</h3>
-                      {policy.id === 'vanguard-advised' && <span className="text-sm text-gray-500">*</span>}
+                      <h3 className="text-2xl font-xl font-bold text-black-900" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>{policy.name}</h3>
+                      {policy.id === 'vanguard-advised' && <span className="text-sm text-black-500">*</span>}
+                      {/* Dropdown arrow icon */}
+                      <div className="w-4 h-4 bg-black rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </div>
                     </div>
                   </div>
                   
@@ -235,10 +241,10 @@ const App = () => {
 
         {/* Individual Fund Selection */}
         <div className="mt-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
+          <h2 className="text-3xl font-bold text-black-900 mb-6" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
             Want to choose policies for individual funds?
           </h2>
-          <p className="text-gray-700 mb-6 text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
+          <p className="text-black-700 mb-6 text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
             If you'd like to apply a different voting policy to an individual participating Vanguard fund in your 
             eligible Vanguard accounts, you should first select a policy above to apply to all of your Vanguard 
             funds. Then you can come back here to edit policy selections for individual participating Vanguard 
@@ -257,23 +263,23 @@ const App = () => {
               <div 
                 onClick={() => setIndividualPoliciesEnabled(!individualPoliciesEnabled)}
                 className={`w-14 h-8 rounded-full cursor-pointer transition-colors border-2 ${
-                  individualPoliciesEnabled ? 'bg-gray-600 border-gray-600' : 'bg-gray-200 border-gray-300'
+                  individualPoliciesEnabled ? 'bg-gray-400 border-black-700' : 'bg-gray-200 border-gray-300'
                 } relative`}
               >
                 <div 
-                  className={`w-6 h-6 bg-white rounded-full shadow-md transform transition-transform absolute top-0.5 ${
+                  className={`w-6 h-6 bg-black rounded-full shadow-md transform transition-transform absolute top-0.5 ${
                     individualPoliciesEnabled ? 'translate-x-6' : 'translate-x-0.5'
                   }`}
                 >
                   {individualPoliciesEnabled && (
                     <div className="w-full h-full flex items-center justify-center">
-                      <Check className="w-3 h-3 text-gray-600" />
+                      <Check className="w-3 h-3 text-white" />
                     </div>
                   )}
                 </div>
               </div>
             </div>
-            <label htmlFor="individual-policies" className="text-gray-700 cursor-pointer" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
+            <label htmlFor="individual-policies" className="text-black-700 cursor-pointer" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
               Yes, let me choose policies for individual funds.
             </label>
           </div>
@@ -282,36 +288,36 @@ const App = () => {
             <div>
               <div className="grid grid-cols-2 gap-8 mb-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center space-x-2" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
+                  <h3 className="text-xl font-semibold text-black-900 mb-4 flex items-center space-x-2" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
                     <span>Your participating funds</span>
-                    <div className="w-4 h-4 bg-gray-400 rounded-full flex items-center justify-center">
+                    <div className="w-4 h-4 bg-black-400 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs">?</span>
                     </div>
                   </h3>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4 text-right" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>Your policy</h3>
+                  <h3 className="text-xl font-semibold text-black-900 mb-4 text-right" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>Your policy</h3>
                 </div>
               </div>
 
               {fundsList.map((fund, index) => {
                 const PolicyIconComponent = getPolicyIcon(fundPolicies[index]);
                 return (
-                  <div key={index} className="border-b border-gray-200 py-4">
+                  <div key={index} className="border-b border-black-200 py-4">
                     <div className="grid grid-cols-2 gap-8 items-center">
                       <div>
-                        <h4 className="font-medium text-gray-900 mb-1 text-sm" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>{fund.name}</h4>
+                        <h4 className="font-medium text-black-900 mb-1 text-sm" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>{fund.name}</h4>
                         <div className="flex items-center space-x-2">
-                          <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{fund.accountNumber}</span>
-                          <span className="text-xs text-gray-600" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{fund.account}</span>
-                          <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{fund.accountNumber}</span>
+                          <span className="text-xs text-black-600 bg-black-100 px-2 py-1 rounded" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{fund.accountNumber}</span>
+                          <span className="text-xs text-black-600" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{fund.account}</span>
+                          <span className="text-xs text-black-600 bg-black-100 px-2 py-1 rounded" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{fund.accountNumber}</span>
                         </div>
                       </div>
                       <div className="flex items-center justify-end">
-                        <span className="text-gray-900 text-sm underline mr-2" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{getPolicyName(fundPolicies[index])}</span>
+                        <span className="text-black-900 text-sm underline mr-2" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{getPolicyName(fundPolicies[index])}</span>
                         <button
                           onClick={() => handlePolicyChange(index)}
-                          className="text-black hover:text-gray-700 font-medium"
+                          className="text-black hover:text-black-700 font-medium"
                         >
                           <Edit2 className="w-4 h-4" />
                         </button>
@@ -333,7 +339,7 @@ const App = () => {
               <h3 className="text-xl font-semibold">Select a different policy for this fund</h3>
               <button
                 onClick={() => setShowPolicyModal(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-black-500 hover:text-black-700"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -357,7 +363,7 @@ const App = () => {
                       <span className="w-2 h-2 rounded-full bg-black block"></span>
                     )}
                   </span>
-                  <span className="text-gray-900">{policy.name}</span>
+                  <span className="text-black-900">{policy.name}</span>
                 </label>
               ))}
             </div>
@@ -365,13 +371,13 @@ const App = () => {
             <div className="flex space-x-3">
               <button
                 onClick={savePolicyChange}
-                className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors"
+                className="bg-black text-white px-6 py-2 rounded-full hover:bg-black-800 transition-colors"
               >
                 Save
               </button>
               <button
                 onClick={() => setShowPolicyModal(false)}
-                className="border border-gray-300 px-6 py-2 rounded-full hover:bg-gray-50 transition-colors"
+                className="border border-black-300 px-6 py-2 rounded-full hover:bg-black-50 transition-colors"
               >
                 Cancel
               </button>
@@ -388,20 +394,20 @@ const App = () => {
               <h3 className="text-xl font-semibold">Confirm Policy Selection</h3>
               <button
                 onClick={() => setShowConfirmModal(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-black-500 hover:text-black-700"
               >
                 <X className="w-6 h-6" />
               </button>
             </div>
             
-            <p className="text-gray-700 mb-4">
+            <p className="text-black-700 mb-4">
               By selecting this policy, you understand that it will apply to all current and future funds participating in 
               Investor Choice held in your eligible Vanguard accounts.
             </p>
             
-            <p className="text-gray-600 text-sm mb-6">This includes funds advised by Vanguard that:</p>
+            <p className="text-black-600 text-sm mb-6">This includes funds advised by Vanguard that:</p>
             
-            <ul className="text-sm text-gray-600 mb-6 space-y-1">
+            <ul className="text-sm text-black-600 mb-6 space-y-1">
               <li>• You already own that are currently in the Investor Choice Pilot Program or that join the Pilot later.</li>
               <li>• You purchase at a later date that are participating in the Investor Choice Pilot Program at that time.</li>
             </ul>
@@ -409,13 +415,13 @@ const App = () => {
             <div className="flex space-x-3">
               <button
                 onClick={confirmGlobalPolicy}
-                className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors"
+                className="bg-black text-white px-6 py-2 rounded-full hover:bg-black-800 transition-colors"
               >
                 Yes, apply to all funds
               </button>
               <button
                 onClick={cancelGlobalPolicy}
-                className="border border-gray-300 px-6 py-2 rounded-full hover:bg-gray-50 transition-colors"
+                className="border border-black-300 px-6 py-2 rounded-full hover:bg-black-50 transition-colors"
               >
                 No, cancel
               </button>
