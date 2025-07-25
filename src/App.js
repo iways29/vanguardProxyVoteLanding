@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Check, X, Users, Building2, Globe, Eye, Edit2 } from 'lucide-react';
+import { useAuth } from './hooks/useAuth';
+import AuthForm from './components/AuthForm';
+import LoginButton from './components/LoginButton';
 import './index.css';
 
 const App = () => {
+  const { user, loading } = useAuth();
   const [selectedGlobalPolicies, setSelectedGlobalPolicies] = useState(['vanguard-advised']);
   const [pendingGlobalPolicy, setPendingGlobalPolicy] = useState('');
   const [individualPoliciesEnabled, setIndividualPoliciesEnabled] = useState(false);
@@ -115,14 +119,42 @@ const App = () => {
     return Users;
   };
 
+  // Show loading screen while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show login screen if not authenticated
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-teal-700 via-teal-600 to-green-200 flex items-center justify-center p-4">
+        <AuthForm />
+      </div>
+    );
+  }
+
+  // Show main app if authenticated
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-gradient-to-br from-teal-700 via-teal-600 to-green-200 pt-12 pb-2">
         <div className="max-w-9xl mx-auto px-9">
-          <h1 className="text-6xl font-black mb-8 text-left text-white" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
-            Proxy voting: Your voice, your choice
-          </h1>
+          {/* Header with login button */}
+          <div className="flex justify-between items-start mb-8">
+            <h1 className="text-6xl font-black text-left text-white" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
+              Proxy voting: Your voice, your choice
+            </h1>
+            <div className="mt-4">
+              <LoginButton />
+            </div>
+          </div>
           
           <div className="bg-white shadow-4xl p-8 relative -mb-24 z-20 border border-black-100">
             <div className="grid grid-cols-3 gap-6">
