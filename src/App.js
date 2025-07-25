@@ -118,31 +118,31 @@ const App = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-gradient-to-br from-teal-500 via-teal-600 to-green-600 pt-12 pb-16">
-        <div className="max-w-5xl mx-auto px-6">
-          <h1 className="text-4xl font-black mb-8 text-left text-white" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
+      <div className="bg-gradient-to-br from-teal-700 via-teal-600 to-green-200 pt-12 pb-2">
+        <div className="max-w-9xl mx-auto px-9">
+          <h1 className="text-6xl font-black mb-8 text-left text-white" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
             Proxy voting: Your voice, your choice
           </h1>
           
-          <div className="bg-white rounded-lg shadow-2xl p-6 relative -mb-16">
+          <div className="bg-white shadow-4xl p-8 relative -mb-24 z-20 border border-gray-100">
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col">
-                <div className="w-full h-28 mb-3">
+                <div className="w-full h-32 mb-3">
                   <img 
-                    src="https://images.pexels.com/photos/6898854/pexels-photo-6898854.jpeg" 
+                    src={require("./iamge.jpeg")} 
                     alt="People voting" 
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <button className="text-blue-600 underline hover:text-blue-800 transition-colors text-sm text-left" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
-                  Frequently asked questions →
+                <button className="underline hover:opacity-50 transition-colors text-xl text-left font-bold" style={{ color: '#2159d2', fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
+                  Frequently asked questions {'>'}
                 </button>
               </div>
               
-              <div className="border-r border-gray-200 pr-4">
-                <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>What's Vanguard offering?</h3>
-                <p className="text-gray-700 text-sm leading-relaxed text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
-                  <span className="underline">The Vanguard Investor Choice Pilot Program</span> is providing a 
+              <div className="border-r border-black-600 pr-4">
+                <h3 className="text-lg font-bold mb-3" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>What's Vanguard offering?</h3>
+                <p className="text-gray text-sm leading-relaxed text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
+                  <span className="underline" style={{ color: '#2159d2' }}>The Vanguard Investor Choice Pilot Program</span> is providing a 
                   way for you to participate in the proxy voting process by 
                   choosing a proxy voting policy that will help direct how your 
                   shares in select Vanguard equity index funds are voted on 
@@ -151,8 +151,8 @@ const App = () => {
               </div>
               
               <div className="pl-4">
-                <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>What's proxy voting?</h3>
-                <p className="text-gray-700 text-sm leading-relaxed text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
+                <h3 className="text-lg font-bold mb-3" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>What's proxy voting?</h3>
+                <p className="text-black-700 text-sm leading-relaxed text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
                   Public companies hold shareholder meetings where key issues
                   —such as electing the board of directors and executive pay—
                   are presented to a shareholder vote. Proxy voting enables 
@@ -166,7 +166,7 @@ const App = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 pt-24 pb-12">
+      <div className="max-w-4xl mx-auto px-5 pt-32 pb-12">
         <div className="text-left mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>
             Want to choose a policy for all Vanguard funds?
@@ -174,10 +174,14 @@ const App = () => {
           <p className="text-lg text-gray-700 mb-2 text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
             Vanguard Investor Choice currently offers the following policy options that reflect a broad range of 
             approaches to proxy voting that you may choose to apply to your{' '}
-            <span className="text-blue-600 underline">participating Vanguard equity index funds</span>{' '}
-            held in <span className="text-blue-600 underline">the accounts that are eligible</span>, now or in the future, to participate in Investor Choice.
+            <span className="underline" style={{ color: '#2159d2' }}>
+              participating Vanguard equity index funds
+            </span>{' '}
+            held in <span className="underline" style={{ color: '#2159d2' }}>
+              the accounts that are eligible
+            </span>, now or in the future, to participate in Investor Choice.
           </p>
-          <p className="text-gray-600 mb-8 text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
+          <p className="text-black-600 mb-8 text-justify" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>
             Expand each of the following policies to review the details and make your selection. You can change 
             your choice at any time. <strong>Participation in this program is voluntary. No further action is required if you 
             choose not to participate.</strong>
@@ -194,11 +198,13 @@ const App = () => {
               <div key={policy.id} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    {typeof policy.icon === 'function' ? (
-                      <policy.icon />
-                    ) : (
-                      <Icon className="w-8 h-8 text-gray-600" />
-                    )}
+                    <div className="bg-teal-100 text-teal-800 w-12 h-12 flex items-center justify-center rounded-full mr-2">
+                      {typeof policy.icon === 'function' ? (
+                        <policy.icon className="w-8 h-8 text-black" />
+                      ) : (
+                        <Icon className="w-8 h-8 text-black" />
+                      )}
+                    </div>
                     <div className="flex items-center space-x-2">
                       <h3 className="text-lg font-medium text-gray-900" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>{policy.name}</h3>
                       {policy.id === 'vanguard-advised' && <span className="text-sm text-gray-500">*</span>}
@@ -206,14 +212,16 @@ const App = () => {
                   </div>
                   
                   {isSelected ? (
-                    <div className="bg-black text-white px-6 py-2 rounded-full flex items-center space-x-2">
-                      <Check className="w-4 h-4" />
-                      <span className="text-sm">Selected</span>
+                    <div className="flex items-center space-x-2 font-bold bg-black px-8 py-2 rounded-full">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-full border-2 border-black bg-white">
+                        <Check className="w-4 h-4 text-black" />
+                      </span>
+                      <span className="text-base text-white">Selected</span>
                     </div>
                   ) : (
                     <button
                       onClick={() => handleGlobalPolicySelect(policy.id)}
-                      className="border border-gray-300 px-4 py-2 rounded-full hover:bg-gray-50 transition-colors text-sm"
+                      className="border-2 border-black px-4 py-2 rounded-full transition-colors text-base font-bold text-black"
                       style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}
                     >
                       Apply to all funds
@@ -281,8 +289,8 @@ const App = () => {
                     </div>
                   </h3>
                 </div>
-                <div className="pl-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>Your policy</h3>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4 text-right" style={{ fontFamily: '"FF Mark Pro Heavy", system-ui, sans-serif' }}>Your policy</h3>
                 </div>
               </div>
 
@@ -299,8 +307,8 @@ const App = () => {
                           <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{fund.accountNumber}</span>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between pl-8">
-                        <span className="text-gray-900 text-sm underline flex-1 mr-2" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{getPolicyName(fundPolicies[index])}</span>
+                      <div className="flex items-center justify-end">
+                        <span className="text-gray-900 text-sm underline mr-2" style={{ fontFamily: '"FF Mark Pro Regular", system-ui, sans-serif' }}>{getPolicyName(fundPolicies[index])}</span>
                         <button
                           onClick={() => handlePolicyChange(index)}
                           className="text-black hover:text-gray-700 font-medium"
@@ -333,15 +341,22 @@ const App = () => {
             
             <div className="space-y-3 mb-6">
               {policies.map((policy) => (
-                <label key={policy.id} className="flex items-center space-x-3">
+                <label key={policy.id} className="flex items-center space-x-3 cursor-pointer">
                   <input
                     type="radio"
                     name="policy-selection"
                     value={policy.id}
                     checked={tempPolicySelection === policy.id}
                     onChange={(e) => setTempPolicySelection(e.target.value)}
-                    className="w-4 h-4"
+                    className="sr-only"
                   />
+                  <span
+                    className={`w-5 h-5 rounded-full border border-black border-[1.5px] bg-white flex items-center justify-center transition-colors duration-150`}
+                  >
+                    {tempPolicySelection === policy.id && (
+                      <span className="w-2 h-2 rounded-full bg-black block"></span>
+                    )}
+                  </span>
                   <span className="text-gray-900">{policy.name}</span>
                 </label>
               ))}
